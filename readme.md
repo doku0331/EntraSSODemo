@@ -52,3 +52,5 @@ dotnet add package Microsoft.Identity.Web.GraphServiceClient --version 3.9.4
 修改程式就可以看能不能登出與取得me
 
 
+# 取得me要指定欄位
+參考me 跟 getUser的差異

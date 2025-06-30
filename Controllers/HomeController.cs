@@ -21,9 +21,8 @@ public class HomeController : Controller
     }
 
     [Authorize]
-     public IActionResult Index()
+     public async Task<IActionResult> Index()
     {
-        
         ViewBag.UserName = User.Identity?.Name;
         
         return View();
@@ -48,7 +47,23 @@ public class HomeController : Controller
     public async Task<IActionResult> Me()
     {
         var me = await _graphClient.Me.GetAsync();
+       
         return Ok(me);
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> GetUser()
+    {
+        var user = await _graphClient.Me
+            .GetAsync(req =>
+            {
+                req.QueryParameters.Select = new[] {
+                    "displayName", "mail",
+                    "streetAddress", "city", "country"
+                };
+            });
+        return Ok(user);
     }
 
     public IActionResult Privacy()
