@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Graph" Version="5.83.0" />
     <PackageReference Include="Microsoft.Identity.Web" Version="3.9.4" />
+    <PackageReference Include="Microsoft.Identity.Web.GraphServiceClient" Version="3.9.4" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.9.4" />
   </ItemGroup>
 
