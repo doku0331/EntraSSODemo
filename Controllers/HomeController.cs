@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using EntraSSODemo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EntraSSODemo.Controllers;
 
@@ -13,9 +14,12 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    [Authorize]
+     public IActionResult Index()
     {
-        return View();
+        
+        var userName = User.Identity?.Name;
+        return Content($"歡迎回來，{userName}");
     }
 
     public IActionResult Privacy()
