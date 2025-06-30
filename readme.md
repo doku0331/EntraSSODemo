@@ -43,3 +43,12 @@ dotnet package list --project .\EntraSSODemo.csproj 檢查一下
     "CallbackPath": "/signin-oidc"
   }
 ```
+修改程式後就可以看能不能登入
+
+# 登入登出與me
+安裝 套件
+dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.GraphServiceClient --version 3.9.4
+修改程式就可以看能不能登出與取得me
+
+
